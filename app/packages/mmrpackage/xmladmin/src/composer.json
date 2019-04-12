@@ -1,0 +1,7 @@
+{
+    "name": "mashh/src",
+    "description": "This Package is for Admin using XML",
+    "type": "library",
+    "minimum-stability": "dev",
+    "require": {}
+}
