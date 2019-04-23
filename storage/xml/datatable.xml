@@ -1,6 +1,7 @@
 <datatables>
 
     <datatable codename="adminusers" model="User" route="adminusers">
+        <primary>id</primary>
             <header>
                 <title>User ID</title>
                 <title>User Name</title>
@@ -13,26 +14,43 @@
             </body>
             <code name="adminaction" action="action"></code>
             <code name="adminactions" action="actions"></code>
-            <config searchable="true" length="true" text="Order Management" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            <where key="role" op="=" value="admin"></where>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
             </config>
     </datatable>
-
-
-
-
-
-
-
-        <datatable codename="executiveusers">
+    <datatable codename="executiveusers" model="User" route="executiveusers">
+        <primary>id</primary>
             <header>
                 <title>User ID</title>
                 <title>User Name</title>
                 <title>Action</title>
             </header>
             <body>
-                <column searchable="true" orderable="false" name="user_id">user_id</column>
+                <column searchable="true" orderable="false" name="id">id</column>
                 <column searchable="true" orderable="false" name="name">name</column>
                 <column searchable="true" orderable="false" name="action">action</column>
             </body>
-        </datatable>
+            <code name="adminaction" action="action"></code>
+            <code name="adminactions" action="actions"></code>
+            <where key="role" op="=" value="executive"></where>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
+    <datatable codename="citymanagement" model="City" route="citymanagement">
+        <primary>id</primary>
+            <header>
+                <title>City ID</title>
+                <title>City Name</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="id">id</column>
+                <column searchable="true" orderable="false" name="title">title</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+            <code name="adminaction" action="action"></code>
+            <code name="adminactions" action="actions"></code>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
 </datatables>

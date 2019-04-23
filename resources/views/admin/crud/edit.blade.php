@@ -6,13 +6,13 @@
           <p class="br-section-text">{{$labeldesc}}</p>
 
           <div class="form-layout form-layout-1">
-            <form action="{{route('admin.update' , ['slug' => $slug , 'id' => $oldValue->{$primary} ]) }}" method="POST" {!!$encytype!!}>
+            <form action="{{route('admin.update' ,$oldValue->{$primary}) }}" method="POST" {!!$encytype!!}>
               {{csrf_field()}}
             <div class="row mg-b-25">
               @foreach($inputs as $input)
               <div class="{{$input->class}}">
                 <div class="form-group">
-                  <label class="form-control-label">{{$input->label}}<span class="{{$input->span['class']}}">{{$input->span['label']}}</span></label>
+                  <label class="form-control-label">{{$input->labelup}}<span class="{{$input->span['class']}}">{{$input->span['label']}}</span></label>
                   @if($input->input['type'] == "select")
                   @isset($input->values)
                   <select name="{{$input->input['name']}}" class="{{$input->input['class']}}">
@@ -37,6 +37,8 @@
                   <input class="{{$input->input['class']}}" type="{{$input->input['type']}}" id="{{$input->input['id']}}" name="{{$input->input['name']}}" value="{{$oldValue->{$input->column} }}" placeholder="{{$input->input['placeholder']}}" {{$input->input['required']}}>
                   @elseif($input->input['type'] == "password")
                   <input class="{{$input->input['class']}}" type="{{$input->input['type']}}" id="{{$input->input['id']}}" name="{{$input->input['name']}}" placeholder="{{$input->input['placeholder']}}" {{$input->input['required']}}>
+                  @elseif($input->input['type'] == "hidden")
+                   <input type="hidden" name="{{$input->input['name']}}" value="{{$input->input['value']}}">
                   @endif
                 </div>
               </div>

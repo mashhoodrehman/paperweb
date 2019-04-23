@@ -33,6 +33,8 @@
                   <textarea name="{{$input->input['name']}}" id="{{$input->input['id']}}"></textarea>
 
                   <script>{!! $input->code !!}</script>
+                   @elseif($input->input['type'] == "hidden")
+                   <input type="hidden" name="{{$input->input['name']}}" value="{{$input->input['value']}}">
                   @else
                   <input class="{{$input->input['class']}}" type="{{$input->input['type']}}" id="{{$input->input['id']}}" name="{{$input->input['name']}}" value="{{$input->input['value']}}" placeholder="{{$input->input['placeholder']}}" {{$input->input['required']}}>
                   @endif

@@ -12,7 +12,7 @@
                 <class>col-lg-12</class>
                 <column>name</column>
                 <label>Create Name</label>
-                <label>Create Name</label>
+                <labelup>Update Name</labelup>
                 <span class="txt-danger" label="*" ></span>
                 <input name="name" type="text" value="" class="form-control" placeholder="User Name" required="required"></input>
             </input>
@@ -20,6 +20,7 @@
                 <class>col-lg-12</class>
                 <column>email</column>
                 <label>Create Email</label>
+                <labelup>Update Email</labelup>
                 <span class="txt-danger" label="*" ></span>
                 <input name="email" type="text" value="" class="form-control" placeholder="Email"></input>
             </input>
@@ -27,14 +28,94 @@
                 <class>col-lg-12</class>
                 <column>password</column>
                 <label>Create Password</label>
+                <labelup>Update Password</labelup>
                 <span class="txt-danger" label="*" ></span>
                 <input name="password" type="password" value="" class="form-control" placeholder="Password" method="bcrypt"></input>
             </input>
             <input>
                 <class>col-lg-12</class>
                 <label>Confirm Password</label>
+                <labelup>Confirm Password</labelup>
                 <span class="txt-danger" label="*" ></span>
                 <input name="password_confirmation" type="password" value="" class="form-control" placeholder="Confirm Password"></input>
+            </input>
+             <input>
+                <column>role</column>
+                <input name="role" type="hidden" value="admin"></input>
+            </input>
+        </inputs>
+    </create>
+    <create codename="executiveusers" enctype="true" model="User" validation="rules">
+        <label>Create Users</label>
+        <labup>Update Users</labup>
+        <labupdesc>Update Users</labupdesc>
+        <primary>id</primary>
+        <!-- Page Label Description -->
+        <labeldesc>Create Users</labeldesc>
+        <!-- For Inputs -->
+        <inputs>
+            <input>
+                <class>col-lg-12</class>
+                <column>name</column>
+                <label>Create Name</label>
+                <labelup>Update Name</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="name" type="text" value="" class="form-control" placeholder="User Name" required="required"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <column>email</column>
+                <label>Create Email</label>
+                <labelup>Update Email</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="email" type="text" value="" class="form-control" placeholder="Email"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <column>password</column>
+                <label>Create Password</label>
+                <labelup>Update Password</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="password" type="password" value="" class="form-control" placeholder="Password" method="bcrypt"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <label>Confirm Password</label>
+                <labelup>Confirm Password</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="password_confirmation" type="password" value="" class="form-control" placeholder="Confirm Password"></input>
+            </input>
+            <input>
+                <column>role</column>
+                <input name="role" type="hidden" value="executive"></input>
+            </input>
+        </inputs>
+    </create>
+    <create codename="citymanagement" enctype="true" model="City">
+        <encytype > enctype="multipart/form-data" </encytype>
+        <label>Create City</label>
+        <labup>Update City</labup>
+        <labupdesc>Update City</labupdesc>
+        <primary>id</primary>
+        <!-- Page Label Description -->
+        <labeldesc>Create City</labeldesc>
+        <!-- For Inputs -->
+        <inputs>
+            <input>
+                <class>col-lg-12</class>
+                <column>title</column>
+                <label>Create City</label>
+                <labelup>Update City</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="title" type="text" value="" class="form-control" placeholder="City" required="required"></input>
+            </input>
+             <input>
+                <class>col-lg-12</class>
+                <column>logo</column>
+                <label>Create City Logo</label>
+                <labelup>Update City Logo</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="title" type="file" value="" class="form-control" required="required"></input>
             </input>
         </inputs>
     </create>

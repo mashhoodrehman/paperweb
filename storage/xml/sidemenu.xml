@@ -6,4 +6,5 @@
 	</sidemenu>
 	<sidemenu name="Newspaper Management" slug="newspapermanagement" isParent="true" icon="ion-document-text"></sidemenu>
 	<sidemenu name="Adds Management" slug="addsmanagement" isParent="false" icon="ion-flash"></sidemenu>
+	<sidemenu name="City Management" slug="citymanagement" isParent="false" icon="ion-flash"></sidemenu>
 </sidemenus>

@@ -23,6 +23,7 @@ Route::post('admin/datatable/{slug}' , 'HomeController@getDataTable')->name('adm
 Route::get('admin/create/{slug}' , 'HomeController@create')->name('admin.create');
 Route::get('admin/edit/{slug}/{id}' , 'HomeController@edit')->name('admin.edit');
 Route::post('admin/store/{slug}' , 'HomeController@store')->name('admin.store');
-Route::post('admin/update/{slug}/{id}' , 'HomeController@update')->name('admin.update');
+Route::post('admin/update/{id}' , 'HomeController@update')->name('admin.update');
+Route::get('admin/delete/{id}/{slug}' , 'HomeController@delete')->name('admin.delete');
 Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('admin.datatable.index');

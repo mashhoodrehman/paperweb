@@ -65,8 +65,7 @@ class HomeController extends Controller
         $label = $ord->label[0];
         $inputs = $ord->inputs[0];
         $labeldesc = $ord->labeldesc[0];
-        $encytype = $ord['encytype'];
-
+        $encytype = $ord->encytype;
         // if(isset($ord->relations)){
         //     $relations = $ord->relations[0];
         //     foreach ($relations as $key => $value) {
@@ -99,15 +98,27 @@ class HomeController extends Controller
       else{
       $namespaceModel = '\\App\\' .  $tablemodel;
       }
-        $json = $namespaceModel::all();
+      $where = [];
+      $datatablehwere = $ord->where;
+        foreach ($datatablehwere as $key => $value) {
+          $key = (string) $value['key'];
+          $op = (string) $value['op'];
+          $value = (string) $value['value'];
+          $where[] = [$key , $op , $value];
+        }
+        $json = $namespaceModel::where($where)->get();
+        
         $table =  \DataTables::of($json);
+        
+        $primary = (string) $ord->primary;
           $editcolumns =  $ord->code;
           foreach ($editcolumns as $key => $value) {
             $viewname = (string) $value['name'];
-            $code = view('admin.includes.datatablecode' , compact('viewname' , 'slug'))->render();
+            // $code = 
             $columnname = (string) $value['action'];
-            $table->addcolumn($columnname , function($json) use ($code) {
-                 return $code;
+            $table->addcolumn($columnname , function($json) use ($viewname , $slug , $primary) {
+              $id = $json->{$primary};
+                return view('admin.includes.datatablecode' , compact('viewname' , 'slug' , 'id'))->render();
             });
           }
         return $table->make(true);
@@ -145,6 +156,10 @@ class HomeController extends Controller
             if($value->input['type'] == "password"){
               $method = (string) $value->input['method'];
              $model->{$value->column} = $method($request->{$value->input['name']}); 
+            }
+            if($value->input['type'] == "hidden"){
+              $method = (string) $value->input['method'];
+             $model->{$value->column} = $request->{$value->input['name']}; 
             }
             if($value->input['type'] == "file"){
                 if(isset($value->size)){
@@ -210,7 +225,7 @@ class HomeController extends Controller
         return view('admin.crud.edit' , compact('label' , 'oldValue'  , 'inputs' , 'labeldesc' , 'route' , 'encytype' , 'primary' , 'data' , 'push' , 'slug'));
     }
 
-      public function update(Request $request){
+      public function update(Request $request , $id){
       $slug_xml = $request->slug_xml;
       $xml = simplexml_load_string(file_get_contents(storage_path('xml/create.xml')));
       $ord = $xml->xpath("//create[@codename='{$slug_xml}']")[0];
@@ -221,7 +236,8 @@ class HomeController extends Controller
       else{
       $namespaceModel = '\\App\\' .  $tablemodel;
       }
-      $model = new $namespaceModel;
+      $primary = (string) $ord->primary;
+      $model =  $namespaceModel::where($primary , $id)->first();
       if(isset($ord['validation'])){
         $validationrule = (string) $ord['validation'];
       $validation = \Validator::make($request->all() ,   $namespaceModel::${$validationrule});
@@ -239,7 +255,7 @@ class HomeController extends Controller
             if($value->input['type'] == "text"){
             $model->{$value->column} = $request->{$value->input['name']};
             }
-            if($value->input['type'] == "password"){
+            if($value->input['type'] == "password" && $request->{$value->input['name']}){
               $method = (string) $value->input['method'];
              $model->{$value->column} = $method($request->{$value->input['name']}); 
             }
@@ -262,7 +278,23 @@ class HomeController extends Controller
         }
         $model->save();
 
+
         return redirect()->back();
       }
+
+      public function delete($id,$slug){
+        $xml = simplexml_load_string(file_get_contents(storage_path('xml/create.xml')));
+      $ord = $xml->xpath("//create[@codename='{$slug}']")[0];
+        $primary = (string) $ord->primary;
+        if(isset($ord['path'])){
+            $NamespacedModel = '\\App\\' . $ord['path']  .  $ord['model'];
+            }
+            else{
+              $NamespacedModel = '\\App\\' .  $ord['model'];
+            }
+        $data = $NamespacedModel::where($primary , '=' , $id)->first();
+        $data->delete();
+        return redirect()->back();
+    }
 
 }
