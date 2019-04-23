@@ -12,10 +12,7 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function index(){
-    	dd('dsfsdfsdf');
-    	return view('admin.dashboard');
-    }
+    
 
     public function indextest(){
     	return view('admin.dashboard');

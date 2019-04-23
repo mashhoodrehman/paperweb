@@ -1,0 +1,41 @@
+<creates>
+<create codename="adminusers" enctype="true" model="User" validation="rules">
+        <label>Create Users</label>
+        <labup>Update Users</labup>
+        <labupdesc>Update Users</labupdesc>
+        <primary>id</primary>
+        <!-- Page Label Description -->
+        <labeldesc>Create Users</labeldesc>
+        <!-- For Inputs -->
+        <inputs>
+            <input>
+                <class>col-lg-12</class>
+                <column>name</column>
+                <label>Create Name</label>
+                <label>Create Name</label>
+                <span class="txt-danger" label="*" ></span>
+                <input name="name" type="text" value="" class="form-control" placeholder="User Name" required="required"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <column>email</column>
+                <label>Create Email</label>
+                <span class="txt-danger" label="*" ></span>
+                <input name="email" type="text" value="" class="form-control" placeholder="Email"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <column>password</column>
+                <label>Create Password</label>
+                <span class="txt-danger" label="*" ></span>
+                <input name="password" type="password" value="" class="form-control" placeholder="Password" method="bcrypt"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <label>Confirm Password</label>
+                <span class="txt-danger" label="*" ></span>
+                <input name="password_confirmation" type="password" value="" class="form-control" placeholder="Confirm Password"></input>
+            </input>
+        </inputs>
+    </create>
+</creates>

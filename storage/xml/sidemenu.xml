@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sidemenus>
+	<sidemenu name="User Management" isParent="true" icon="ion-person">
+		<childmenu name="Admin Users" slug="adminusers"></childmenu>
+		<childmenu name="Executive Users" slug="executiveusers"></childmenu>
+	</sidemenu>
+	<sidemenu name="Newspaper Management" slug="newspapermanagement" isParent="true" icon="ion-document-text"></sidemenu>
+	<sidemenu name="Adds Management" slug="addsmanagement" isParent="false" icon="ion-flash"></sidemenu>
+</sidemenus>

@@ -1,0 +1,38 @@
+<datatables>
+
+    <datatable codename="adminusers" model="User" route="adminusers">
+            <header>
+                <title>User ID</title>
+                <title>User Name</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="id">id</column>
+                <column searchable="true" orderable="false" name="name">name</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+            <code name="adminaction" action="action"></code>
+            <code name="adminactions" action="actions"></code>
+            <config searchable="true" length="true" text="Order Management" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
+
+
+
+
+
+
+
+        <datatable codename="executiveusers">
+            <header>
+                <title>User ID</title>
+                <title>User Name</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="user_id">user_id</column>
+                <column searchable="true" orderable="false" name="name">name</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+        </datatable>
+</datatables>
