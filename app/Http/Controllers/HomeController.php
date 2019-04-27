@@ -66,23 +66,23 @@ class HomeController extends Controller
         $inputs = $ord->inputs[0];
         $labeldesc = $ord->labeldesc[0];
         $encytype = $ord->encytype;
-        // if(isset($ord->relations)){
-        //     $relations = $ord->relations[0];
-        //     foreach ($relations as $key => $value) {
-        //         $model = $value->model;
-        //         $NamespacedModel = '\\App\\'  .  $model;
-        //         $where = [];
-        //         if(isset($value->queries)){
-        //             foreach ($value->queries as $query) {
-        //                 $col = (string) $query;
-        //                 $op = (string) $query['op'];
-        //                 $valuee = (string) $query['value'];
-        //             $where[] = [$col , $op , $valuee];
-        //             }
-        //         }
-        //         $data[(string)$value->variable] =  $NamespacedModel::where($where)->get();
-        //     }
-        // }
+        if(isset($ord->relations)){
+            $relations = $ord->relations[0];
+            foreach ($relations as $key => $value) {
+                $model = $value->model;
+                $NamespacedModel = '\\App\\'  .  $model;
+                $where = [];
+                if(isset($value->queries)){
+                    foreach ($value->queries as $query) {
+                        $col = (string) $query;
+                        $op = (string) $query['op'];
+                        $valuee = (string) $query['value'];
+                    $where[] = [$col , $op , $valuee];
+                    }
+                }
+                $data[(string)$value->variable] =  $NamespacedModel::where($where)->get();
+            }
+        }
         // $primary = $ord->primary;
         // $push = $ord->push;
         return view('admin.crud.create' , compact('label' , 'inputs' , 'labeldesc' , 'route' , 'encytype' , 'primary' , 'data' , 'push' , 'slug'));
@@ -112,15 +112,29 @@ class HomeController extends Controller
         
         $primary = (string) $ord->primary;
           $editcolumns =  $ord->code;
+          $rawColumns = [];
           foreach ($editcolumns as $key => $value) {
             $viewname = (string) $value['name'];
             // $code = 
             $columnname = (string) $value['action'];
-            $table->addcolumn($columnname , function($json) use ($viewname , $slug , $primary) {
+            if(isset($value['action'])){
+              $columnval = $value['colvalue'];
+            }
+            else{
+              $columnval = fals;
+            }
+            $table->addcolumn($columnname , function($json) use ($viewname , $slug , $primary , $columnval) {
               $id = $json->{$primary};
-                return view('admin.includes.datatablecode' , compact('viewname' , 'slug' , 'id'))->render();
+              if($columnval){
+                $columnval = $json->{$columnval};
+              }
+                return view('admin.includes.datatablecode' , compact('viewname' , 'slug' , 'id' , 'columnval' , 'json'))->render();
             });
+            if(isset($value['rawcolumn'])){
+                $rawColumns[] = $columnname;
+              }
           }
+          $table->rawColumns($rawColumns);
         return $table->make(true);
     }
 
@@ -161,6 +175,16 @@ class HomeController extends Controller
               $method = (string) $value->input['method'];
              $model->{$value->column} = $request->{$value->input['name']}; 
             }
+            if($value->input['type'] == "textarea"){
+              $method = (string) $value->input['method'];
+             $model->{$value->column} = $request->{$value->input['name']}; 
+            }
+            if($value->input['type'] == "date"){
+             $model->{$value->column} = $request->{$value->input['name']}; 
+            }
+             if($value->input['type'] == "select"){
+             $model->{$value->column} = $request->{$value->input['name']}; 
+            }
             if($value->input['type'] == "file"){
                 if(isset($value->size)){
                     $size['width'] = $value->size['width'];
@@ -189,7 +213,7 @@ class HomeController extends Controller
         $label = $ord->labup[0];
         $inputs = $ord->inputs[0];
         $labeldesc = $ord->labupdesc[0];
-        $encytype = $ord['encytype'];
+        $encytype = $ord->encytype;
          $tablemodel = $ord['model'];
       if(isset($dataparse['path'])){
       $namespaceModel = '\\App\\' . $ord['path']  .  $tablemodel;

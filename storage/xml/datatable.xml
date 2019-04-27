@@ -53,4 +53,119 @@
             <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
             </config>
     </datatable>
+    <datatable codename="categorymanagement" model="Category" route="citymanagement">
+        <primary>id</primary>
+            <header>
+                <title>Category ID</title>
+                <title>Category Title</title>
+                <title>Image</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="id">id</column>
+                <column searchable="true" orderable="false" name="title">title</column>
+                <column searchable="true" orderable="false" name="cateimage">cateimage</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+            <code name="adminaction" action="action" rawcolumn="true"></code>
+            <code name="cateimage" action="cateimage" colvalue="icon" rawcolumn="true"></code>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
+    <datatable codename="qualificationmanagement" model="Qualification" route="qualificationmanagement">
+        <primary>id</primary>
+            <header>
+                <title>Qualification ID</title>
+                <title>Qualification Title</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="id">id</column>
+                <column searchable="true" orderable="false" name="title">title</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+            <code name="adminaction" action="action"></code>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
+    <datatable codename="jobtypesmanagement" model="JobType" route="jobtypesmanagement">
+        <primary>id</primary>
+            <header>
+                <title>Job Type ID</title>
+                <title>Job Type Title</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="id">id</column>
+                <column searchable="true" orderable="false" name="job_type_title">job_type_title</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+            <code name="adminaction" action="action"></code>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
+    <datatable codename="newspapermanagement" model="Newspaper" route="newspapermanagement">
+        <primary>id</primary>
+            <header>
+                <title>NewsPaper ID</title>
+                <title>NewsPaper Title</title>
+                <title>NewsPaper Founder</title>
+                <title>Launch Date</title>
+                <title>Logo</title>
+                <title>Slug</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="id">id</column>
+                <column searchable="true" orderable="false" name="title">title</column>
+                <column searchable="true" orderable="false" name="founded_by">founded_by</column>
+                <column searchable="true" orderable="false" name="launch_date">launch_date</column>
+                <column searchable="false" orderable="false" name="logoimg">logoimg</column>
+                <column searchable="true" orderable="false" name="slug">slug</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+            <code name="adminaction" action="action" rawcolumn="true"></code>
+            <code name="logoimg" action="logoimg" colvalue="logo" rawcolumn="true"></code>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
+    <datatable codename="addsmanagement" model="Adds" route="addsmanagement">
+        <primary>id</primary>
+            <header>
+                <title>Adds ID</title>
+                <title>Adds Title</title>
+                <title>NewsPaper Title</title>
+                <title>Category Title</title>
+                <title>Job Type</title>
+                <title>City Title</title>
+                <title>Qualification Title</title>
+                <title>Minimum Requirements</title>
+                <title>Description</title>
+                <title>Apply Date</title>
+                <title>Last Date</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="id">id</column>
+                <column searchable="true" orderable="false" name="title">title</column>
+                <column searchable="true" orderable="false" name="newspapertitle">newspapertitle</column>
+                <column searchable="true" orderable="false" name="categorytitle">categorytitle</column>
+                <column searchable="true" orderable="false" name="jobtype">jobtype</column>
+                <column searchable="true" orderable="false" name="citytitle">citytitle</column>
+                <column searchable="true" orderable="false" name="qualificationtitle">qualificationtitle</column>
+                <column searchable="true" orderable="false" name="minimum_requirements">minimum_requirements</column>
+                <column searchable="true" orderable="false" name="description">description</column>
+                <column searchable="true" orderable="false" name="apply_by">apply_by</column>
+                <column searchable="true" orderable="false" name="last_date">last_date</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+            <code name="adminaction" action="action" rawcolumn="true"></code>
+            <code name="newspapertitle" action="newspapertitle" colvalue="newspaper_id" rawcolumn="true"></code>
+            <code name="jobtype" action="jobtype" colvalue="job_type_id" rawcolumn="true"></code>
+            <code name="qualificationtitle" action="qualificationtitle" colvalue="qualification_id" rawcolumn="true"></code>
+            <code name="citytitle" action="citytitle" colvalue="city_id" rawcolumn="true"></code>
+            <code name="categorytitle" action="categorytitle" colvalue="category_id" rawcolumn="true"></code>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
 </datatables>

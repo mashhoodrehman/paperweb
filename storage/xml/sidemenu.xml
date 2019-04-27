@@ -4,7 +4,11 @@
 		<childmenu name="Admin Users" slug="adminusers"></childmenu>
 		<childmenu name="Executive Users" slug="executiveusers"></childmenu>
 	</sidemenu>
-	<sidemenu name="Newspaper Management" slug="newspapermanagement" isParent="true" icon="ion-document-text"></sidemenu>
+	<sidemenu name="NewsPaper Management" slug="newspapermanagement" isParent="false" icon="ion-flash"></sidemenu>
+	<!-- <sidemenu name="Newspaper Management" slug="newspapermanagement" isParent="true" icon="ion-document-text"></sidemenu> -->
 	<sidemenu name="Adds Management" slug="addsmanagement" isParent="false" icon="ion-flash"></sidemenu>
 	<sidemenu name="City Management" slug="citymanagement" isParent="false" icon="ion-flash"></sidemenu>
+	<sidemenu name="Category Management" slug="categorymanagement" isParent="false" icon="ion-flash"></sidemenu>
+	<sidemenu name="Qualification Management" slug="qualificationmanagement" isParent="false" icon="ion-flash"></sidemenu>
+	<sidemenu name="Job Types Management" slug="jobtypesmanagement" isParent="false" icon="ion-flash"></sidemenu>
 </sidemenus>

@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/' , 'FrontendController@index')->name('frontend.index');
 Route::get('admin/dashboard' , 'HomeController@dashboard')->name('admin.dashboard');
 Route::get('admin/index/{slug}' , 'HomeController@index')->name('admin.index');
 Route::post('admin/datatable/{slug}' , 'HomeController@getDataTable')->name('admin.datatable');

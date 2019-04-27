@@ -35,6 +35,13 @@
                   <script>{!! $input->code !!}</script>
                    @elseif($input->input['type'] == "hidden")
                    <input type="hidden" name="{{$input->input['name']}}" value="{{$input->input['value']}}">
+                  @elseif($input->input['type'] == "file")
+                  <div class="col-md-3">
+                   <img id="{{$input->input['selector']}}" src="{{asset($input->img['src'])}}" width="100%" height="180px;">
+                   <input type="file" name="{{$input->input['name']}}" onchange="readURL(this);" data-id="{{$input->input['selector']}}" value="{{$input->input['value']}}">
+                 </div>
+                 @elseif($input->input['type'] == "slug")
+                   <input type="{{$input->input['slug']}}"  onkeyup="MakeSlug(this)" data-slug="{{$input->input['slug_id']}}" id="{{$input->input['id']}}" class="{{$input->input['class']}}" name="{{$input->input['name']}}" value="{{$input->input['value']}}">
                   @else
                   <input class="{{$input->input['class']}}" type="{{$input->input['type']}}" id="{{$input->input['id']}}" name="{{$input->input['name']}}" value="{{$input->input['value']}}" placeholder="{{$input->input['placeholder']}}" {{$input->input['required']}}>
                   @endif
@@ -66,6 +73,27 @@
       </footer>
 
       @push('script-js')
+      function readURL(input) {
+var idsel = $(input).attr('data-id')
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                var img = $(`#${idsel}`)
+                reader.onload = function (e) {
+                    img.attr('src', e.target.result);
+                };
+   
+                reader.readAsDataURL(input.files[0]);
+            }
+}
+function MakeSlug(input)
+      {
+var id = $(input).attr('id')
+var dataid = $(input).attr('data-slug')
+          var Text = document.getElementById(id).value;
+              Text = Text.toLowerCase();
+              Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
+              document.getElementById(dataid).value = Text;
+      }
       @if(!empty($push))
 
       {!! $push !!}

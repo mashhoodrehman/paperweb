@@ -115,8 +115,352 @@
                 <label>Create City Logo</label>
                 <labelup>Update City Logo</labelup>
                 <span class="txt-danger" label="*" ></span>
-                <input name="title" type="file" value="" class="form-control" required="required"></input>
+                <input name="logo" selector="city_logo" type="file" value="" class="form-control" required="required"></input>
+                <img id="city_logo" src="icons/images.png" width="100%" height="180px;" alt="your image" />
             </input>
         </inputs>
+    </create>
+    <create codename="categorymanagement" enctype="true" model="Category">
+        <encytype > enctype="multipart/form-data" </encytype>
+        <label>Create Category</label>
+        <labup>Update Category</labup>
+        <labupdesc>Update Category</labupdesc>
+        <primary>id</primary>
+        <!-- Page Label Description -->
+        <labeldesc>Create Category</labeldesc>
+        <!-- For Inputs -->
+        <inputs>
+            <input>
+                <class>col-lg-12</class>
+                <column>title</column>
+                <label>Create Category</label>
+                <labelup>Update Category</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="title" type="text" value="" class="form-control" placeholder="Category" required="required"></input>
+            </input>
+             <input>
+                <class>col-lg-12</class>
+                <column>icon</column>
+                <label>Create Category Logo</label>
+                <labelup>Update Category Logo</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="icon" selector="category_logo" type="file" value="" class="form-control" required="required"></input>
+                <img id="category_logo" src="icons/images.png" width="100%" height="180px;" alt="your image" />
+            </input>
+        </inputs>
+    </create>
+    <create codename="qualificationmanagement" enctype="true" model="Qualification">
+        <encytype > enctype="multipart/form-data" </encytype>
+        <label>Create Qualification</label>
+        <labup>Update Qualification</labup>
+        <labupdesc>Update Qualification</labupdesc>
+        <primary>id</primary>
+        <!-- Page Label Description -->
+        <labeldesc>Create Qualification</labeldesc>
+        <!-- For Inputs -->
+        <inputs>
+            <input>
+                <class>col-lg-12</class>
+                <column>title</column>
+                <label>Create Qualification</label>
+                <labelup>Update Qualification</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="title" type="text" value="" class="form-control" placeholder="Qualification" required="required"></input>
+            </input>
+        </inputs>
+    </create>
+    <create codename="jobtypesmanagement" enctype="true" model="JobType">
+        <encytype > enctype="multipart/form-data" </encytype>
+        <label>Create Job Type</label>
+        <labup>Update Job Type</labup>
+        <labupdesc>Update Job Type</labupdesc>
+        <primary>id</primary>
+        <!-- Page Label Description -->
+        <labeldesc>Create Job Type</labeldesc>
+        <!-- For Inputs -->
+        <inputs>
+            <input>
+                <class>col-lg-12</class>
+                <column>job_type_title</column>
+                <label>Create Job Type</label>
+                <labelup>Update Job Type</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="title" type="text" value="" class="form-control" placeholder="Job Type" required="required"></input>
+            </input>
+        </inputs>
+    </create>
+    <create codename="newspapermanagement" enctype="true" model="Newspaper">
+        <encytype > enctype="multipart/form-data" </encytype>
+        <label>Create Newspaper</label>
+        <labup>Update Newspaper</labup>
+        <labupdesc>Update Newspaper</labupdesc>
+        <primary>id</primary>
+        <!-- Page Label Description -->
+        <labeldesc>Create Newspaper title</labeldesc>
+        <!-- For Inputs -->
+        <inputs>
+            <input>
+                <class>col-lg-12</class>
+                <column>title</column>
+                <label>Create Newspaper Title</label>
+                <labelup>Update Newspaper Title</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="title" type="slug" slug="text" id="newslug" slug_id="newspaperslug" value="" class="form-control" placeholder="Newspaper Title" required="required"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <column>founded_by</column>
+                <label>Create Newspaper Founder</label>
+                <labelup>Update Newspaper Founder</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="founded_by" type="text" value="" class="form-control" placeholder="Newspaper Founder" required="required"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <column>launch_date</column>
+                <label>Newspaper Date</label>
+                <labelup>Newspaper Date</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="launch_date" type="date" value="" class="form-control" placeholder="Newspaper Date" required="required"></input>
+            </input>
+             <input>
+                <class>col-lg-12</class>
+                <column>slug</column>
+                <label>Newspaper Slug</label>
+                <labelup>Newspaper Slug</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="slug" type="text" value="" id="newspaperslug" class="form-control" placeholder="Newspaper slug" required="required"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <column>logo</column>
+                <label>Create NewsPaper Logo</label>
+                <labelup>Update Newspaper Logo</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="logo" selector="newspaper_logo" type="file" value="" class="form-control" required="required"></input>
+                <img id="newspaper_logo" src="icons/images.png" width="100%" height="180px;" alt="your image" />
+            </input>
+        </inputs>
+    </create>
+    <create codename="addsmanagement" enctype="true" model="Adds">
+        <encytype > enctype="multipart/form-data" </encytype>
+        <label>Create Adds</label>
+        <labup>Update Adds</labup>
+        <labupdesc>Update Adds</labupdesc>
+        <primary>id</primary>
+        <!-- Page Label Description -->
+        <labeldesc>Create Adds title</labeldesc>
+        <!-- For Inputs -->
+        <inputs>
+            <input>
+                <class>col-lg-12</class>
+                <column>title</column>
+                <label>Create Adds Title</label>
+                <labelup>Update Adds Title</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="title" type="text" value="" class="form-control" placeholder="Adds Title" required="required"></input>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <label>Select Newspaper</label>
+                <column>newspaper_id</column>
+                <span class="txt-danger" label="*" ></span>
+                <input name="newspaper_id" type="select" class="form-control" value="" placeholder=""></input>
+                <variable>newspapers</variable>
+                <variablecol primary="id">title</variablecol>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <label>Select Job Type</label>
+                <column>job_type_id</column>
+                <span class="txt-danger" label="*" ></span>
+                <input name="job_type_id" type="select" class="form-control" value="" placeholder=""></input>
+                <variable>job_type</variable>
+                <variablecol primary="id">job_type_title</variablecol>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <label>Select City</label>
+                <column>city_id</column>
+                <span class="txt-danger" label="*" ></span>
+                <input name="city_id" type="select" class="form-control" value="" placeholder=""></input>
+                <variable>city_id</variable>
+                <variablecol primary="id">title</variablecol>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <label>Select Category</label>
+                <column>category_id</column>
+                <span class="txt-danger" label="*" ></span>
+                <input name="category_id" type="select" class="form-control" value="" placeholder=""></input>
+                <variable>category_id</variable>
+                <variablecol primary="id">title</variablecol>
+            </input>
+            <input>
+                <class>col-lg-12</class>
+                <label>Select Qualification</label>
+                <column>qualification_id</column>
+                <span class="txt-danger" label="*" ></span>
+                <input name="qualification_id" type="select" class="form-control" value="" placeholder=""></input>
+                <variable>qualification_id</variable>
+                <variablecol primary="id">title</variablecol>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>company_name</column>
+                <label>Company Name</label>
+                <labelup>Update Company Name</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="company_name" type="text" value="" class="form-control" placeholder="Company Name" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>total_pos</column>
+                <label>Total Position</label>
+                <labelup>Total Position</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="total_pos" type="text" value="" class="form-control" placeholder="Total Position" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>job_loc</column>
+                <label>Job Location</label>
+                <labelup>Job Location</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="job_loc" type="text" value="" class="form-control" placeholder="Job Location" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>salary</column>
+                <label>Salary</label>
+                <labelup>Salary</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="salary" type="text" value="" class="form-control" placeholder="Salary" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>experience</column>
+                <label>Experience</label>
+                <labelup>Experience</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="experience" type="text" value="" class="form-control" placeholder="Experience" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>age_limit</column>
+                <label>Age Limit</label>
+                <labelup>Age Limit</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="age_limit" type="text" value="" class="form-control" placeholder="Age Limit" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>working_hours</column>
+                <label>Working Hours</label>
+                <labelup>Working Hours</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="working_hours" type="text" value="" class="form-control" placeholder="Working Hours" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>contact_number</column>
+                <label>Contact Number</label>
+                <labelup>Contact Number</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="contact_number" type="text" value="" class="form-control" placeholder="Contact Number" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>address</column>
+                <label>Job Address</label>
+                <labelup>Job Address</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="address" type="text" value="" class="form-control" placeholder="Job Address" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>minimum_requirements</column>
+                <label>Minimum Requirements</label>
+                <labelup>Minimum Requirements</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="minimum_requirements" type="text" value="" class="form-control" placeholder="Minimum Requirements" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>job_email</column>
+                <label>Job Email</label>
+                <labelup>Job Email</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="job_email" type="text" value="" class="form-control" placeholder="Job Email" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>description</column>
+                <label>Description</label>
+                <labelup>Description</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="description" type="textarea" value="" class="form-control" placeholder="Description" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>apply_by</column>
+                <label>Apply Date</label>
+                <labelup>Apply Date</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="apply_by" type="date" value="" class="form-control" placeholder="Apply Date" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>last_date</column>
+                <label>Last Date</label>
+                <labelup>Last Date</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="last_date" type="date" value="" class="form-control" placeholder="" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>newspaper_piece</column>
+                <label>Add Logo</label>
+                <labelup>Add Logo</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="newspaper_piece" type="file" value="" class="form-control" required="required"></input>
+            </input>
+            <input>
+               <class>col-lg-12</class>
+                <column>rel_logo</column>
+                <label>Relevant Logo</label>
+                <labelup>Relevant Logo</labelup>
+                <span class="txt-danger" label="*" ></span>
+                <input name="rel_logo" type="file" value="" class="form-control" required="required"></input>
+            </input>
+        </inputs>
+         <!-- Relation Data -->
+        <relations>
+            <relation>
+            <model>Newspaper</model>
+            <variable>newspapers</variable>
+            <variablecol primary="id">title</variablecol>
+            </relation>
+             <relation>
+            <model>JobType</model>
+            <variable>job_type</variable>
+            <variablecol primary="id">job_type_title</variablecol>
+            </relation>
+            <relation>
+            <model>City</model>
+            <variable>city_id</variable>
+            <variablecol primary="id">title</variablecol>
+            </relation>
+            <relation>
+            <model>Category</model>
+            <variable>category_id</variable>
+            <variablecol primary="id">title</variablecol>
+            </relation>
+            <relation>
+            <model>Qualification</model>
+            <variable>qualification_id</variable>
+            <variablecol primary="id">title</variablecol>
+            </relation>
+        </relations>
     </create>
 </creates>

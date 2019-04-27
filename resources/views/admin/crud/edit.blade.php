@@ -39,7 +39,12 @@
                   <input class="{{$input->input['class']}}" type="{{$input->input['type']}}" id="{{$input->input['id']}}" name="{{$input->input['name']}}" placeholder="{{$input->input['placeholder']}}" {{$input->input['required']}}>
                   @elseif($input->input['type'] == "hidden")
                    <input type="hidden" name="{{$input->input['name']}}" value="{{$input->input['value']}}">
-                  @endif
+                   @elseif($input->input['type'] == "file")
+                  <div class="col-md-3">
+                   <img id="{{$input->input['selector']}}" src="{{asset($oldValue->{$input->column}) }}" width="100%" height="180px;">
+                   <input type="file" name="{{$input->input['name']}}" onchange="readURL(this);" data-id="{{$input->input['selector']}}" value="{{$input->input['value']}}">
+                 </div>
+                 @endif
                 </div>
               </div>
               @endforeach
@@ -68,6 +73,18 @@
       </footer>
 
       @push('script-js')
+      function readURL(input) {
+var idsel = $(input).attr('data-id')
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                var img = $(`#${idsel}`)
+                reader.onload = function (e) {
+                    img.attr('src', e.target.result);
+                };
+   
+                reader.readAsDataURL(input.files[0]);
+            }
+          }
       @if(!empty($push))
 
       {!! $push !!}
