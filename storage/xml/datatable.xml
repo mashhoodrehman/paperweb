@@ -168,4 +168,20 @@
             <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
             </config>
     </datatable>
+    <datatable codename="testmanagement" model="City" route="testmanagement">
+        <primary>id</primary>
+            <header>
+                <title>Test ID</title>
+                <title>test Title</title>
+                <title>Action</title>
+            </header>
+            <body>
+                <column searchable="true" orderable="false" name="id">id</column>
+                <column searchable="true" orderable="false" name="title">title</column>
+                <column searchable="true" orderable="false" name="action">action</column>
+            </body>
+            <code name="adminaction" action="action"></code>
+            <config searchable="true" length="true" switchery="false" status="false" columnstatus="false" columnsearch="true">
+            </config>
+    </datatable>
 </datatables>

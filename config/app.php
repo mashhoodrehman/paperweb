@@ -169,6 +169,7 @@ return [
 
         // Mashhood\AdminXML\AdminXMLServiceProvider::class,
         App\packages\mmrpackage\adminXML\src\AdminXMLServiceProvider::class,
+         Weidner\Goutte\GoutteServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,7 +231,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Goutte' => Weidner\Goutte\GoutteFacade::class,
 
     ],
 

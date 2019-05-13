@@ -11,4 +11,5 @@
 	<sidemenu name="Category Management" slug="categorymanagement" isParent="false" icon="ion-flash"></sidemenu>
 	<sidemenu name="Qualification Management" slug="qualificationmanagement" isParent="false" icon="ion-flash"></sidemenu>
 	<sidemenu name="Job Types Management" slug="jobtypesmanagement" isParent="false" icon="ion-flash"></sidemenu>
+	<sidemenu name="Test Management" slug="testmanagement" isParent="false" icon="ion-flash"></sidemenu>
 </sidemenus>
