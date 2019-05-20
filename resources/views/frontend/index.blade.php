@@ -1,31 +1,26 @@
 @extends('frontend.layout.app')
 @section('content')
 
-<section id="categories">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-10 col-md-12 col-xs-12">
-        <div id="categories-icon-slider" class="categories-wrapper owl-carousel owl-theme">
-          @foreach($categories as $category)
-          <div class="item">
-            <a href="category.html">
-              <div class="category-icon-item">
-                <div class="icon-box">
-                  <div class="icon">
-                    <img src="{{asset($category->icon)}}" alt="">
-                  </div>
-                  <h4>{{$category->title}}</h4>
+<section class="categories-icon bg-light section-padding">
+        <div class="container">
+            <h1 class="section-title">Categories</h1>
+            <div class="row justify-content-center">
+                @foreach($categories as $category)
+                <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
+                    <a href="category.html">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <i class="lni-car"></i>
+                            </div>
+                            <h4>{{$category->title}}</h4>
+                        </div>
+                    </a>
                 </div>
-              </div>
-            </a>
-          </div>
-          @endforeach
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+                @endforeach
 
+            </div>
+        </div>
+    </section>
 
 <section class="featured section-padding">
   <div class="container">
