@@ -187,13 +187,14 @@
               more</p>
             <div class="search-bar">
               <div class="search-inner">
-                <form class="search-form">
+                <form class="search-form" action="{{url('search')}}" method="GET">
+                  {{csrf_field()}}
                   <div class="form-group">
-                    <input type="text" name="customword" class="form-control" placeholder="What are you looking for?">
+                    <input type="text" name="search" class="form-control" placeholder="What are you looking for?">
                   </div>
                   <div class="form-group inputwithicon">
                     <div class="select">
-                      <select>
+                      <select name="city">
                         <option value="none">Select City</option>
                         @foreach($cities as $city)
                         <option value="{{$city->id}}">{{$city->title}}</option>
@@ -204,7 +205,7 @@
                   </div>
                   <div class="form-group inputwithicon">
                     <div class="select">
-                      <select>
+                      <select name="category">
                         <option value="none">Select Catagory</option>
                         @foreach($categories as $category)
                         <option value="{{$category->id}}">{{$category->title}}</option>
@@ -213,7 +214,7 @@
                     </div>
                     <i class="lni-menu"></i>
                   </div>
-                  <button class="btn btn-common" type="button"><i class="lni-search"></i> Search Now</button>
+                  <button class="btn btn-common" type="submit"><i class="lni-search"></i> Search Now</button>
                 </form>
               </div>
             </div>

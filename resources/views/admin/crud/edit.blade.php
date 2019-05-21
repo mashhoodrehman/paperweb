@@ -30,7 +30,7 @@
                   </select>
                   @endisset
                   @elseif($input->input['type'] == "textarea")
-                  <textarea name="{{$input->input['name']}}" id="{{$input->input['id']}}"></textarea>
+                  <textarea name="{{$input->input['name']}}" id="{{$input->input['id']}}">{{ $oldValue->{$input->column} }}</textarea>
 
                   <script>{!! $input->code !!}</script>
                   @elseif($input->input['type'] == "text")
@@ -44,7 +44,9 @@
                    <img id="{{$input->input['selector']}}" src="{{asset($oldValue->{$input->column}) }}" width="100%" height="180px;">
                    <input type="file" name="{{$input->input['name']}}" onchange="readURL(this);" data-id="{{$input->input['selector']}}" value="{{$input->input['value']}}">
                  </div>
-                 @endif
+                 @else
+                  <input class="{{$input->input['class']}}" type="{{$input->input['type']}}" id="{{$input->input['id']}}" name="{{$input->input['name']}}" value="{{$oldValue->{$input->column} }}" placeholder="{{$input->input['placeholder']}}" {{$input->input['required']}}>
+                  @endif
                 </div>
               </div>
               @endforeach

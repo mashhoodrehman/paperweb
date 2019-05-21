@@ -223,6 +223,23 @@ class HomeController extends Controller
       }
         $primary = (string) $ord->primary;
         $oldValue = $namespaceModel::where($primary , '=' , $id)->first();
+        if(isset($ord->relations)){
+            $relations = $ord->relations[0];
+            foreach ($relations as $key => $value) {
+                $model = $value->model;
+                $NamespacedModel = '\\App\\'  .  $model;
+                $where = [];
+                if(isset($value->queries)){
+                    foreach ($value->queries as $query) {
+                        $col = (string) $query;
+                        $op = (string) $query['op'];
+                        $valuee = (string) $query['value'];
+                    $where[] = [$col , $op , $valuee];
+                    }
+                }
+                $data[(string)$value->variable] =  $NamespacedModel::where($where)->get();
+            }
+        }
         // if(isset($ord->optionalque)){
         //    $oldValue->withoutGlobalScopes();
         // }
@@ -246,7 +263,7 @@ class HomeController extends Controller
         // }
         // $primary = $ord->primary;
         // $push = $ord->push;
-        return view('admin.crud.edit' , compact('label' , 'oldValue'  , 'inputs' , 'labeldesc' , 'route' , 'encytype' , 'primary' , 'data' , 'push' , 'slug'));
+        return view('admin.crud.edit' , compact('label' , 'data' ,  'oldValue'  , 'inputs' , 'labeldesc' , 'route' , 'encytype' , 'primary' , 'data' , 'push' , 'slug'));
     }
 
       public function update(Request $request , $id){
@@ -283,10 +300,17 @@ class HomeController extends Controller
               $method = (string) $value->input['method'];
              $model->{$value->column} = $method($request->{$value->input['name']}); 
             }
+            if($value->input['type'] == "date"){
+             $model->{$value->column} = $request->{$value->input['name']}; 
+            }
+            if($value->input['type'] == "textarea"){
+              $method = (string) $value->input['method'];
+             $model->{$value->column} = $request->{$value->input['name']}; 
+            }
             if($value->input['type'] == "file"){
                 if(isset($value->size)){
-                    $size['width'] = $value->size['width'];
-                    $size['height'] = $value->size['height'];
+                    $size['width'] = (string) $value->size['width'];
+                    $size['height'] = (string) $value->size['height'];
                 }
                 else{
                 $size['width'] = 300;

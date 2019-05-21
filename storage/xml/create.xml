@@ -299,6 +299,7 @@
             <input>
                 <class>col-lg-12</class>
                 <label>Select Newspaper</label>
+                <labelup>Select Newspaper</labelup>
                 <column>newspaper_id</column>
                 <span class="txt-danger" label="*" ></span>
                 <input name="newspaper_id" type="select" class="form-control" value="" placeholder=""></input>
@@ -308,6 +309,7 @@
             <input>
                 <class>col-lg-12</class>
                 <label>Select Job Type</label>
+                <labelup>Select Job Type</labelup>
                 <column>job_type_id</column>
                 <span class="txt-danger" label="*" ></span>
                 <input name="job_type_id" type="select" class="form-control" value="" placeholder=""></input>
@@ -317,6 +319,7 @@
             <input>
                 <class>col-lg-12</class>
                 <label>Select City</label>
+                <labelup>Select City</labelup>
                 <column>city_id</column>
                 <span class="txt-danger" label="*" ></span>
                 <input name="city_id" type="select" class="form-control" value="" placeholder=""></input>
@@ -326,6 +329,7 @@
             <input>
                 <class>col-lg-12</class>
                 <label>Select Category</label>
+                <labelup>Select Category</labelup>
                 <column>category_id</column>
                 <span class="txt-danger" label="*" ></span>
                 <input name="category_id" type="select" class="form-control" value="" placeholder=""></input>
@@ -335,6 +339,7 @@
             <input>
                 <class>col-lg-12</class>
                 <label>Select Qualification</label>
+                <labelup>Select Qualification</labelup>
                 <column>qualification_id</column>
                 <span class="txt-danger" label="*" ></span>
                 <input name="qualification_id" type="select" class="form-control" value="" placeholder=""></input>
@@ -456,6 +461,7 @@
             <input>
                <class>col-lg-12</class>
                 <column>newspaper_piece</column>
+                <size width="420" height="270"></size>
                 <label>Add Logo</label>
                 <labelup>Add Logo</labelup>
                 <span class="txt-danger" label="*" ></span>

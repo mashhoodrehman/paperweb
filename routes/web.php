@@ -24,5 +24,7 @@ Route::post('admin/store/{slug}' , 'HomeController@store')->name('admin.store');
 Route::post('admin/update/{id}' , 'HomeController@update')->name('admin.update');
 Route::get('admin/delete/{id}/{slug}' , 'HomeController@delete')->name('admin.delete');
 Route::get('getscrappro/{date}/{type}/{paper}' , 'ScrapProduct@storeproByXML');
+Route::get('search' , 'FrontendController@search');
 Auth::routes();
+
 // Route::get('/home', 'HomeController@index')->name('admin.datatable.index');
