@@ -176,54 +176,6 @@
   </nav>
 
 
-  <div id="hero-area">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-12 col-lg-9 col-xs-12 text-center">
-          <div class="contents">
-            <h1 class="head-title">Welcome to The Largest <span class="year">Marketplace</span></h1>
-            <p>Buy and sell everything from used cars to mobile phones and computers, or search for property, jobs and
-              more</p>
-            <div class="search-bar">
-              <div class="search-inner">
-                <form class="search-form" action="{{url('search')}}" method="GET">
-                  {{csrf_field()}}
-                  <div class="form-group">
-                    <input type="text" name="search" class="form-control" placeholder="What are you looking for?">
-                  </div>
-                  <div class="form-group inputwithicon">
-                    <div class="select">
-                      <select name="city">
-                        <option value="none" @if("none" == app('request')->input('city')) selected @endif>Select City</option>
-                        @foreach($cities as $city)
-                        <option value="{{$city->id}}" @if($city->id == app('request')->input('city')) selected @endif>{{$city->title}}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                    <i class="lni-target"></i>
-                  </div>
-                  <div class="form-group inputwithicon">
-                    <div class="select">
-                      <select name="category">
-                        <option value="none" @if("none" == app('request')->input('category')) selected @endif>Select Catagory</option>
-                        @foreach($categories as $category)
-                        <option value="{{$category->id}}" @if($category->id == app('request')->input('category')) selected @endif>{{$category->title}}</option>
-                        @endforeach
-                      </select>
-                    </div>
-                    <i class="lni-menu"></i>
-                  </div>
-                  <button class="btn btn-common" type="submit"><i class="lni-search"></i> Search Now</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
 </header>
 
 @yield('content')

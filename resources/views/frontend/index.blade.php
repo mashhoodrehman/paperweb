@@ -5,14 +5,14 @@
         <div class="container">
             <h1 class="section-title">Categories</h1>
             <div class="row justify-content-center">
-                @foreach($categories as $category)
+                @foreach($newspapers as $newspaper)
                 <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12">
-                    <a href="category.html">
+                    <a href="{{url('newspaper-adds' , $newspaper->id)}}">
                         <div class="icon-box">
                             <div class="icon">
-                                <i class="lni-car"></i>
+                                <img src="{{asset($newspaper->logo)}}" width="130" height="60">
                             </div>
-                            <h4>{{$category->title}}</h4>
+                            <h4>{{$newspaper->title}}</h4>
                         </div>
                     </a>
                 </div>
@@ -34,22 +34,22 @@
               <span class="bg-green"><i class="lni-heart"></i></span>
               <span><i class="lni-bookmark"></i></span>
             </div>
-            <a href="#"><img class="img-fluid" src="{{asset($add->newspaper_piece)}}" alt=""></a>
+            <a href="{{url('add-detail' , $add->id)}}"><img class="img-fluid" src="{{asset($add->newspaper_piece)}}" alt=""></a>
           </figure>
           <div class="feature-content">
             <div class="product">
-              <a href="#">{{$add->newspaper_id}}</a>
+              <a href="{{url('add-detail' , $add->id)}}">{{$add->getNewsPaper->title}}</a>
             </div>
-            <h4><a href="ads-details.html">{{$add->title}}</a></h4>
+            <h4><a href="{{url('add-detail' , $add->id)}}">{{$add->title}}</a></h4>
             <div class="meta-tag">
               <span>
-                <a href="#"><i class="lni-map-marker"></i>{{$add->address}}</a>
+                <a href="{{url('add-detail' , $add->id)}}"><i class="lni-map-marker"></i>{{$add->address}}</a>
               </span>
             </div>
             <p class="dsc">{{$add->description}}</p>
             <div class="listing-bottom">
               <h3 class="price float-left"></h3>
-              <a href="ads-details.html" class="btn btn-common float-right">View Details</a>
+              <a href="{{url('add-detail' , $add->id)}}" class="btn btn-common float-right">View Details</a>
             </div>
           </div>
         </div>
@@ -73,15 +73,15 @@
                 <img class="img-fluid" src="{{asset($add->newspaper_piece)}}" alt="">
                 <div class="overlay">
                   <div>
-                    <a class="btn btn-common" href="ads-details.html">View Details</a>
+                    <a class="btn btn-common" href="{{url('add-detail' , $add->id)}}">View Details</a>
                   </div>
                 </div>
                 
                
               </div>
               <div class="product-content">
-                <h3 class="product-title"><a href="ads-details.html">{{$add->title}}</a></h3>
-                <span>{{$add->newspaper_id}}</span>
+                <h3 class="product-title"><a href="{{url('add-detail' , $add->id)}}">{{$add->title}}</a></h3>
+                <span>{{$add->getNewsPaper->title}}</span>
                 <div class="icon">
                   <span><i class="lni-bookmark"></i></span>
                   <span><i class="lni-heart"></i></span>

@@ -1,4 +1,4 @@
-@extends('frontend.layout.app')
+@extends('frontend.layout.newspaper-head')
 @section('content')
 
 <div class="main-container section-padding">
@@ -23,10 +23,10 @@
 All Categories <span class="category-counter"></span>
 </a>
 </li>
-  @foreach($categories as $category)
-<li @if($category->id == app('request')->input('category')) style="background-color: #e91e63;" @endif>
-<a href="#" @if($category->id == app('request')->input('category')) style="color: white;" @endif>
-<i class="lni-empty-file"></i>{{$category->title}} <span class="category-counter"></span>
+  @foreach($newspapers as $newspaper)
+<li @if($newspaper->id == $adds->first()->newspaper_id) style="background-color: #e91e63;" @endif>
+<a href="#" @if($newspaper->id == $adds->first()->newspaper_id) style="color: white;" @endif>
+<i class="lni-empty-file"></i>{{$newspaper->title}} <span class="category-counter"></span>
 </a>
 </li>
 @endforeach
